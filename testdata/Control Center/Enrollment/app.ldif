@@ -1,0 +1,89 @@
+dn:cn=AdobeRead7.0.8,o=Applications,dc=DestinyData,dc=Destiny,dc=com
+uniqueGlobalIdentifier: Destiny\Applications\Adobe Read 7.0.8
+fullyQualifiedName: Adobe Read 7.0.8
+objectClass: top
+objectClass: DestinyObject
+objectClass: Application
+uniqueSystemIdentifier: acrord32.exe
+cn: Adobe Read 7.0.8
+applicationFingerPrint: acrord32.exe:(null):0:0:92392
+
+dn:cn=NotepadXPSP2,o=Applications,dc=DestinyData,dc=Destiny,dc=com
+uniqueGlobalIdentifier: Destiny\Applications\Notepad XP SP2
+fullyQualifiedName: Notepad XP SP2
+objectClass: top
+objectClass: DestinyObject
+objectClass: Application
+uniqueSystemIdentifier: notepad.exe
+cn: Notepad XP SP2
+applicationFingerPrint: notepad.exe:(null):5:1:85887 
+
+dn:cn=WordpadXPSP2,o=Applications,dc=DestinyData,dc=Destiny,dc=com
+uniqueGlobalIdentifier: Destiny\Applications\Wordpad XP SP2
+fullyQualifiedName: Wordpad XP SP2
+objectClass: top
+objectClass: DestinyObject
+objectClass: Application
+uniqueSystemIdentifier: wordpad.exe
+cn: Wordpad XP SP2
+pplicationFingerPrint: wordpad.exe:(null):5:1:270386
+
+dn:cn=MSOfficeExcel2003,o=Applications,dc=DestinyData,dc=Destiny,dc=com
+uniqueGlobalIdentifier: Destiny\Applications\MS Office Excel 2003
+fullyQualifiedName: MS Office Excel 2003
+objectClass: top
+objectClass: DestinyObject
+objectClass: Application
+uniqueSystemIdentifier: excel.exe
+cn: MS Office Excel 2003
+applicationFingerPrint: excel.exe:(null):0:0:10087005 
+
+dn:cn=MSOfficeInfoPath2003,o=Applications,dc=DestinyData,dc=Destiny,dc=com
+uniqueGlobalIdentifier: Destiny\Applications\MS Office InfoPath 2003
+fullyQualifiedName: MS Office InfoPath1 2003
+objectClass: top
+objectClass: DestinyObject
+objectClass: Application
+uniqueSystemIdentifier: infopath.exe
+cn: MS Office InfoPath 2003
+applicationFingerPrint: infopath.exe:(null):0:0:4855617
+
+dn:cn=MSOfficePublisher2003,o=Applications,dc=DestinyData,dc=Destiny,dc=com
+uniqueGlobalIdentifier: Destiny\Applications\MS Office Publisher 2003
+fullyQualifiedName: MS Office Publisher 2003
+objectClass: top
+objectClass: DestinyObject
+objectClass: Application
+uniqueSystemIdentifier: mspub.exe
+cn: MS Office Publisher 2003
+applicationFingerPrint: mspub.exe:(null):3:0:5691301 
+
+dn:cn=MSOfficeOutlook2003SP2,o=Applications,dc=DestinyData,dc=Destiny,dc=com
+uniqueGlobalIdentifier: Destiny\Applications\MS Office Outlook 2003 SP2
+fullyQualifiedName: MS Office Outlook 2003 SP2
+objectClass: top
+objectClass: DestinyObject
+objectClass: Application
+uniqueSystemIdentifier: outlook.exe
+cn: MS Office Outlook 2003 SP2
+applicationFingerPrint: outlook.exe:(null):0:0:230578 
+
+dn:cn=MSOfficePowerpoint2003,o=Applications,dc=DestinyData,dc=Destiny,dc=com
+uniqueGlobalIdentifier: Destiny\Applications\MS Office Powerpoint 2003
+fullyQualifiedName: MS Office Powerpoint 2003
+objectClass: top
+objectClass: DestinyObject
+objectClass: Application
+uniqueSystemIdentifier: powerpnt.exe
+cn: MS Office Powerpoint 2003
+applicationFingerPrint: powerpnt.exe:(null):0:0:6171931
+
+dn:cn=MSOfficeWinword2003SP2,o=Applications,dc=DestinyData,dc=Destiny,dc=com
+uniqueGlobalIdentifier: Destiny\Applications\MS Office Winword 2003 SP2
+fullyQualifiedName: MS Office Winword 2003 SP2
+objectClass: top
+objectClass: DestinyObject
+objectClass: Application
+uniqueSystemIdentifier: winword.exe
+cn: MS Office Winword 2003 SP2
+applicationFingerPrint: winword.exe:(null):10:0:12062271

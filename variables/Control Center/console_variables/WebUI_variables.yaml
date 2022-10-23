@@ -1,0 +1,132 @@
+#database configuration
+dbapiModuleName: pymssql
+dbName:
+dbUsername:
+dbPassword:
+dbHost: 10.23.58.40
+dbPort: 1433
+
+#input limit
+max name length: 255
+max short name length: 60
+max description length: 4000
+
+#link to each(console,reporter and administrator)application
+# Change the host details in Home and Login Page information,based on where you run the test
+Home: https://develop.cloudaz.k8s.tdomain2.qalab01.nextlabs.com
+
+#link to console application
+Login Page: cas/login?service=https%3A%2F%2Fdevelop.cloudaz.k8s.tdomain2.qalab01.nextlabs.com%2Fconsole%2Flogin%2Fcas
+Create Action Page: console/#/PolicyStudio/Components/Action/create
+List Action Page: console/#/PolicyStudio/Components/Action
+
+Create Resource Page: console/#/PolicyStudio/Components/Resource/create
+List Resource Page: console/#/PolicyStudio/Components/Resource
+
+Create Subject Page: console/#/PolicyStudio/Components/Subject/create
+List Subject Page: console/#/PolicyStudio/Components/Subject
+
+Create Policy Model Page: console/#/PolicyStudio/PolicyModel/create
+Create Policy Model Subject Page: console/#/PolicyStudio/PolicyModel/182
+Create Policy Model Host Page: console/#/PolicyStudio/PolicyModel/183
+Create Policy Model Application Page: console/#/PolicyStudio/PolicyModel/184
+List Policy Model Page: console/#/PolicyStudio/PolicyModel
+
+Create Policy Page: console/#/PolicyStudio/Policies/create
+List Policy Page: console/#/PolicyStudio/Policies
+
+List User Page: console/#/Users/userlist
+Create User page: console/#/Users/createuser
+
+Console Change Password: console/#/editProfile
+
+user source creation page: console/#/loginconfig/add
+
+Help Landing Page: help/CloudAzHelp.html
+
+Policy Tester: console/#/PolicyStudio/PolicyValidator/create
+
+Dashboard: console/#/Dashboard
+
+Delegation Policies Create: console/#/Delegations/create
+
+#link to Enrollment Management
+
+Enrollment Management List: console/#/PolicyStudio/Tools/EnrollmentManagement
+
+#link to XACML Policy Management
+
+XACML Policy Management List: console/#/PolicyStudio/Tools/XacmlPolicy/list
+
+#link to Reporter application
+
+Reporter Login Page: cas/login?service=https%3A%2F%2Fdevelop.cloudaz.k8s.tdomain2.qalab01.nextlabs.com%2Freporter%2F
+
+Reporter Dashboard: reporter/reports/myDashboard.jsf
+
+Reporter Change Password: reporter/userpreferences/changePassword.jsf
+
+Reporter Reports: reporter/reports/myReports.jsf
+
+Reporter Monitoring Alerts: reporter/monitors/myAlerts.jsf
+
+Reporter Monitoring Monitors: reporter/monitors/myMonitors.jsf
+
+Reporter Help Landing Page OPN: help/index.htm?filter=opn%3Aopn#t=CCUserGuide%2FIntro%2FIntro.htm
+
+#link to Administrator application
+
+Administrator Login Page: cas/login?service=https%3A%2F%2Fdevelop.cloudaz.k8s.tdomain2.qalab01.nextlabs.com%2Fadministrator%2F
+
+Administrator landing page: administrator/
+
+Status Overview page:  administrator/status/statusOverview.jsf
+
+Policy enforcer Status page: administrator/status/statusByHost.jsf
+
+# Policy enforcer Status page with "enforcers with warnings only" Enable and select the enforcer type(All policy enforcers,All desktop enforcers, ALL file server enforcers, All portal enforcers and All active directory's)
+
+All Policy Enforcers with warnings:  administrator/status/statusByHost.jsf?statusByHostDefinitionSubview%3AcontentSubview%3A_id10%3AfltrByStsMnu=com.nextlabs.all.agents.filter.id&statusByHostDefinitionSubview%3AcontentSubview%3A_id10%3A_id14=on&statusByHostDefinitionSubview%3AcontentSubview%3A_id10%3AmaxResultsSelect=10&statusByHostDefinitionSubview%3AcontentSubview%3A_id10_SUBMIT=1
+
+All desktop enforcers with warnings: administrator/status/statusByHost.jsf?statusByHostDefinitionSubview%3AcontentSubview%3A_id10%3AfltrByStsMnu=DESKTOP&statusByHostDefinitionSubview%3AcontentSubview%3A_id10%3A_id14=on&statusByHostDefinitionSubview%3AcontentSubview%3A_id10%3AmaxResultsSelect=10&statusByHostDefinitionSubview%3AcontentSubview%3A_id10_SUBMIT=1
+
+ALL file server enforcers with warnings: administrator/status/statusByHost.jsf?statusByHostDefinitionSubview%3AcontentSubview%3A_id10%3AfltrByStsMnu=FILE_SERVER&statusByHostDefinitionSubview%3AcontentSubview%3A_id10%3A_id14=on&statusByHostDefinitionSubview%3AcontentSubview%3A_id10%3AmaxResultsSelect=10&statusByHostDefinitionSubview%3AcontentSubview%3A_id10_SUBMIT=1
+
+All portal enforcers with warnings: administrator/status/statusByHost.jsf?statusByHostDefinitionSubview%3AcontentSubview%3A_id10%3AfltrByStsMnu=PORTAL&statusByHostDefinitionSubview%3AcontentSubview%3A_id10%3A_id14=on&statusByHostDefinitionSubview%3AcontentSubview%3A_id10%3AmaxResultsSelect=10&statusByHostDefinitionSubview%3AcontentSubview%3A_id10_SUBMIT=1
+
+All active directory's with warnings: administrator/status/statusByHost.jsf?statusByHostDefinitionSubview%3AcontentSubview%3A_id10%3AfltrByStsMnu=ACTIVE_DIRECTORY&statusByHostDefinitionSubview%3AcontentSubview%3A_id10%3A_id14=on&statusByHostDefinitionSubview%3AcontentSubview%3A_id10%3AmaxResultsSelect=10&statusByHostDefinitionSubview%3AcontentSubview%3A_id10_SUBMIT=1
+
+# Policy enforcer Status page with "enforcers with warnings only" disable(uncheck) and select the enforcer type(All policy enforcers,All desktop enforcers, ALL file server enforcers, All portal enforcers and All active directory's)
+
+All Policy Enforcers: administrator/status/statusByHost.jsf?statusByHostDefinitionSubview%3AcontentSubview%3A_id10%3AfltrByStsMnu=com.nextlabs.all.agents.filter.id&statusByHostDefinitionSubview%3AcontentSubview%3A_id10%3AmaxResultsSelect=50&statusByHostDefinitionSubview%3AcontentSubview%3A_id10_SUBMIT=1
+
+All desktop enforcers: administrator/status/statusByHost.jsf?statusByHostDefinitionSubview%3AcontentSubview%3A_id10%3AfltrByStsMnu=DESKTOP&statusByHostDefinitionSubview%3AcontentSubview%3A_id10%3AmaxResultsSelect=50&statusByHostDefinitionSubview%3AcontentSubview%3A_id10_SUBMIT=1
+
+ALL file server enforcers: administrator/status/statusByHost.jsf?statusByHostDefinitionSubview%3AcontentSubview%3A_id10%3AfltrByStsMnu=FILE_SERVER&statusByHostDefinitionSubview%3AcontentSubview%3A_id10%3AmaxResultsSelect=50&statusByHostDefinitionSubview%3AcontentSubview%3A_id10_SUBMIT=1
+
+All portal enforcers: administrator/status/statusByHost.jsf?statusByHostDefinitionSubview%3AcontentSubview%3A_id10%3AfltrByStsMnu=PORTAL&statusByHostDefinitionSubview%3AcontentSubview%3A_id10%3AmaxResultsSelect=50&statusByHostDefinitionSubview%3AcontentSubview%3A_id10_SUBMIT=1
+
+All active directory's: administrator/status/statusByHost.jsf?statusByHostDefinitionSubview%3AcontentSubview%3A_id10%3AfltrByStsMnu=ACTIVE_DIRECTORY&statusByHostDefinitionSubview%3AcontentSubview%3A_id10%3AmaxResultsSelect=50&statusByHostDefinitionSubview%3AcontentSubview%3A_id10_SUBMIT=1
+
+# Policy enforcer status with maximum results(10,50,100,250 and 500) with warnings
+
+All Policy Enforcers with 10 results and warnings: administrator/status/statusByHost.jsf?statusByHostDefinitionSubview%3AcontentSubview%3A_id10%3AfltrByStsMnu=com.nextlabs.all.agents.filter.id&statusByHostDefinitionSubview%3AcontentSubview%3A_id10%3A_id14=on&statusByHostDefinitionSubview%3AcontentSubview%3A_id10%3AmaxResultsSelect=10&statusByHostDefinitionSubview%3AcontentSubview%3A_id10_SUBMIT=1
+
+All Policy Enforcers with 50 results and warnings: administrator/status/statusByHost.jsf?statusByHostDefinitionSubview%3AcontentSubview%3A_id10%3AfltrByStsMnu=com.nextlabs.all.agents.filter.id&statusByHostDefinitionSubview%3AcontentSubview%3A_id10%3A_id14=on&statusByHostDefinitionSubview%3AcontentSubview%3A_id10%3AmaxResultsSelect=50&statusByHostDefinitionSubview%3AcontentSubview%3A_id10_SUBMIT=1
+
+All Policy Enforcers with 100 results and warnings: administrator/status/statusByHost.jsf?statusByHostDefinitionSubview%3AcontentSubview%3A_id10%3AfltrByStsMnu=com.nextlabs.all.agents.filter.id&statusByHostDefinitionSubview%3AcontentSubview%3A_id10%3A_id14=on&statusByHostDefinitionSubview%3AcontentSubview%3A_id10%3AmaxResultsSelect=100&statusByHostDefinitionSubview%3AcontentSubview%3A_id10_SUBMIT=1
+
+All Policy Enforcers with 250 results and warnings: administrator/status/statusByHost.jsf?statusByHostDefinitionSubview%3AcontentSubview%3A_id10%3AfltrByStsMnu=com.nextlabs.all.agents.filter.id&statusByHostDefinitionSubview%3AcontentSubview%3A_id10%3A_id14=on&statusByHostDefinitionSubview%3AcontentSubview%3A_id10%3AmaxResultsSelect=250&statusByHostDefinitionSubview%3AcontentSubview%3A_id10_SUBMIT=1
+
+All Policy Enforcers with 500 results and warnings: administrator/status/statusByHost.jsf?statusByHostDefinitionSubview%3AcontentSubview%3A_id10%3AfltrByStsMnu=com.nextlabs.all.agents.filter.id&statusByHostDefinitionSubview%3AcontentSubview%3A_id10%3A_id14=on&statusByHostDefinitionSubview%3AcontentSubview%3A_id10%3AmaxResultsSelect=500&statusByHostDefinitionSubview%3AcontentSubview%3A_id10_SUBMIT=1
+
+
+Desktop Enforcer Page: administrator/agentconfig/agentConfig.jsf?agentTypeId=DESKTOP
+
+File Server Enforcer Page: administrator/agentconfig/agentConfig.jsf?agentTypeId=FILE_SERVER
+
+Portal Enforcer Page: administrator/agentconfig/agentConfig.jsf?agentTypeId=PORTAL
+
+Agent Config page: administrator/agentconfig/agentConfig.jsf
+
+Agent Config Browse Hosts: administrator/agentconfig/agentConfigBrowseHosts.jsf

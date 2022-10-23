@@ -1,0 +1,223 @@
+# LDIF
+# LDVPv3
+
+dn: dc=sap,dc=nextlabs,dc=com
+objectclass: top
+cn: sap
+objectGUID: 001
+
+dn: cn=filangi,dc=sap,dc=nextlabs,dc=com
+objectclass: user
+cn: filangi
+AccountName: Regina Filangi
+Company: ACME
+CountryCode: US
+Country Name: United States
+Department: Marketing
+Full Name: Regina Filangi
+First Name: Regina
+ISO Country Code: US
+Last Name: Filangi
+user Principal Name: rfilangi@sap.nextlabs.com
+SAPUSerId: rfilangi
+objectGUID: 002
+
+dn: cn=Green,dc=sap,dc=nextlabs,dc=com
+objectclass: user
+cn: Green
+AccountName: Rachel Green
+Company: Ralph Lauren
+CountryCode: CN
+Country Name: Canada
+Department: Accessories
+Full Name: Rachel Green
+First Name: Rachel
+ISO Country Code: CN
+Last Name: Green
+user Principal Name: rgreen@sap.nextlabs.com
+SAPUSerId: rgreen
+objectGUID: 003
+
+dn: cn=Washington,dc=sap,dc=nextlabs,dc=com
+objectclass: user
+cn: Washington
+AccountName: George Washington
+Company: Nextlabs
+CountryCode: US
+Country Name: United States
+Department: engineering
+Full Name: George Washington
+First Name: George
+ISO Country Code: US
+Last Name: Washington
+user Principal Name: gwashington@sap.nextlabs.com
+SAPUSerId: GWASHINGTON
+objectGUID: 004
+
+dn: cn=Carter,dc=sap,dc=nextlabs,dc=com
+objectclass: user
+cn: Carter
+AccountName: Jimmy Carter
+Company: Nextlabs
+CountryCode: US
+Country Name: United States
+Department: engineering
+Full Name: Jimmy Carter
+First Name: Jimmy
+ISO Country Code: US
+Last Name: Carter
+user Principal Name: jcarter@sap.nextlabs.com
+SAPUSerId: JCARTER
+objectGUID: 005
+
+dn: cn=Tyler,dc=sap,dc=nextlabs,dc=com
+objectclass: user
+cn: Tyler
+AccountName: John Tyler
+Company: Nextlabs
+CountryCode: US
+Country Name: United States
+Department: engineering
+Full Name: John Tyler
+First Name: John
+ISO Country Code: US
+Last Name: Tyler
+user Principal Name: jtyler@sap.nextlabs.com
+SAPUSerId: JTYLER
+objectGUID: 006
+
+dn: cn=ndeveloper,dc=sap,dc=nextlabs,dc=com
+objectclass: user
+cn: Carter
+AccountName: ndeveloper
+Company: Nextlabs
+CountryCode: US
+Country Name: United States
+Department: engineering
+Full Name: ndeveloper
+First Name: ndeveloper
+ISO Country Code: US
+Last Name: Carter
+user Principal Name: ndeveloper@sap.nextlabs.com
+SAPUSerId: ndeveloper
+objectGUID: 007
+
+dn: cn=bobama,dc=sap,dc=nextlabs,dc=com
+objectclass: user
+cn: Obama
+AccountName: Barack Obama
+Company: Nextlabs
+CountryCode: US
+Country Name: United States
+Department: engineering
+Full Name: Barack Obama
+First Name: Barack
+ISO Country Code: US
+Last Name: Obama
+user Principal Name: bobama@sap.nextlabs.com
+SAPUSerId: BOBAMA
+objectGUID: 008
+
+dn: cn=NXL_QA_A1,dc=sap,dc=nextlabs,dc=com
+objectclass: user
+cn: BlueSpace A1
+AccountName: Bluespace Allow1
+Company: Bluespace Tech
+CountryCode: US
+Country Name: United States
+Department: QA
+Full Name: NXL_QA_A1
+First Name: Bluespace
+ISO Country Code: US
+Last Name: Allow1
+user Principal Name: NXL_QA_A1@sap.nextlabs.com
+SAPUSerId: NXL_QA_A1
+objectGUID: 009
+
+dn: cn=NXL_QA_A2,dc=sap,dc=nextlabs,dc=com
+objectclass: user
+cn: BlueSpace A2
+AccountName: Bluespace Allow2
+Company: Bluespace Tech
+CountryCode: US
+Country Name: United States
+Department: QA
+Full Name: NXL_QA_A2
+First Name: Bluespace
+ISO Country Code: US
+Last Name: Allow2
+user Principal Name: NXL_QA_A2@sap.nextlabs.com
+SAPUSerId: NXL_QA_A2
+objectGUID: 010
+
+dn: cn=NXL_QA_D1,dc=sap,dc=nextlabs,dc=com
+objectclass: user
+cn: BlueSpace D1
+AccountName: Bluespace Deny1
+Company: Bluespace Tech
+CountryCode: US
+Country Name: United States
+Department: QA
+Full Name: NXL_QA_D1
+First Name: Bluespace
+ISO Country Code: US
+Last Name: Deny1
+user Principal Name: NXL_QA_D1@sap.nextlabs.com
+SAPUSerId: NXL_QA_D1
+objectGUID: 011
+
+dn: cn=NXL_QA_D2,dc=sap,dc=nextlabs,dc=com
+objectclass: user
+cn: BlueSpace D2
+AccountName: Bluespace Deny2
+Company: Bluespace Tech
+CountryCode: US
+Country Name: United States
+Department: QA
+Full Name: NXL_QA_D2
+First Name: Bluespace
+ISO Country Code: US
+Last Name: Deny2
+user Principal Name: NXL_QA_D2@sap.nextlabs.com
+SAPUSerId: NXL_QA_D2
+objectGUID: 012
+
+dn: cn=tlannister,dc=sap,dc=nextlabs,dc=com
+objectclass: user
+cn: Nextlabs QA
+AccountName: Tyrion Lannister
+Company: Nextlabs
+CountryCode: ENG
+Country Name: Europe
+Department: QA
+Full Name: tlannister
+First Name: Tyrion
+ISO Country Code: EU
+Last Name: Lannister
+user Principal Name: tlannister@sap.nextlabs.com
+SAPUSerId: tlannister
+objectGUID: 013
+
+dn: cn=astark,dc=sap,dc=nextlabs,dc=com
+objectclass: user
+cn: BlueSpace D2
+AccountName: Arya Stark
+Company: Nextlabs
+CountryCode: FR
+Country Name: France
+Department: QA
+Full Name: astark
+First Name: Arya
+ISO Country Code: FR
+Last Name: Stark
+user Principal Name: astark@sap.nextlabs.com
+SAPUSerId: astark
+objectGUID: 014
+
+
+
+
+
+
+
+

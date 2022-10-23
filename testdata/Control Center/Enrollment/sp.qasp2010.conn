@@ -1,0 +1,33 @@
+# This is a template connection file for enrolling Collaboration Portal Sites. For more 
+# information on using connection files, please consult your Administrator's Guide.
+
+# Domain Name: replace with your actual domain name 
+domain      qapf2.qalab01.nextlabs.com 
+# Login User Name: replace with an actual user name for the portal server
+login       john.tyler
+
+# Portal Server password: You can replace this dummy string with your real
+# password in clear text in  this file; if you choose to do that, remove the '#' from  
+# password line before you save this file.
+# If you want to encrypt the password, leave the parameter out of 
+# this file altogether, and provide the default password when prompted when 
+# you run Enrollment Manager.
+
+password    john.tyler
+
+# Portal Sites: Replace the dummy values below with your actual ones.
+#You can list any number of sites in this file, one per line.
+# Please use full URL for each site, and use '\n\' as a line separator.
+
+portals     http://qa-sp2013/sites/sites
+
+#-------------------------------------------------------------------------------
+# The start time and pull interval for automatic sync 
+# The format of ScheduledSyncTime must be format of "Nov 6, 2012 8:14 PM"
+# The ScheduledSyncInterv is a positive number in minutes. 
+# Zero value of ScheduledSyncInterv means auto-sync feature is disabled.
+#-------------------------------------------------------------------------------
+ScheduledSyncTime                Dec 06, 2012 1:46 AM
+ScheduledSyncInterv              0
+
+

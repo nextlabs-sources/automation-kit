@@ -1,0 +1,143 @@
+Obligation Details
+    [Arguments]    ${obl_ids}
+    Javascript XPath    ${dict['Re OBLIGATIONS Tab']}    scrollIntoView()
+    Click Element    ${dict['Re OBLIGATIONS Tab']}
+    ${row_index}=    Count Rows    ${dict['CT Row Count']}
+    ${worksheet}=    Set Variable    ${vars['worksheet2']}
+    FOR    ${id}    IN    @{obl_ids}
+        ${id}=    Evaluate    str(int(${id}))
+        ${row_count}=    Evaluate    ${row_index}+1
+        ${obl_name}=    Read Cell Data By Name    ${worksheet}    ${vars['obl_name_col']}${id}
+        ${obl_sname}=    Read Cell Data By Name    ${worksheet}    ${vars['obl_sname_col']}${id}
+        ${obl_params}=    Read Cell Data By Name    ${worksheet}    ${vars['obl_param_col']}${id}
+        @{param_ids}=    Evaluate    [x.strip() for x in "${obl_params}".split(',') if x != '']
+        Javascript XPath    ${dict['CT ADD Button']}    scrollIntoView()
+        ${sn_exist}=    Count Rows    ${dict['CT att/act/obl by shortname'].format("${obl_sname}")}
+        IF    "${sn_exist}" == "0"
+            Click Element    ${dict['CT ADD Button']}
+            Sleep    1
+            Javascript XPath    ${dict['Re Obligation Name Editable textbox'].format("${row_index}")}    scrollIntoView()
+            Input Text    ${dict['Re Obligation Name Editable textbox'].format("${row_index}")}    ${obl_name}
+            Input Text    ${dict['Re Obligation Short Name Editable textbox'].format("${row_index}")}    ${obl_sname}
+            Click Element    ${dict['CT Add to table Icon']}
+            Run Keyword If    @{param_ids} != @{EMPTY}    Obligation Parameter Details    ${param_ids}    ${obl_sname}
+            ${row_index}=    Set Variable    ${row_count}
+        ELSE IF    "${sn_exist}" == "1"
+            Sleep    1
+            Javascript XPath    ${dict['CT att/act/obl by shortname'].format("${obl_sname}")}    scrollIntoView()
+            Click Element    ${dict['CT att/act/obl by shortname'].format("${obl_sname}")}/../..//i[@title="Edit"]
+            Input Text    ${dict['CT att/act/obl Name Editable textbox']}    ${obl_name}
+            Element Should Be Disabled    ${dict['CT att/act/obl Short Name Editable textbox']}
+            Click Element    ${dict['CT Add to table Icon']}
+            IF    @{param_ids} != @{EMPTY}
+                Click Element    ${dict['Re Obligation hide/show parameters Link by shortname'].format("${obl_sname}")}
+                FOR    ${id}    IN    @{param_ids}
+                    ${id}=    Evaluate    str(int(${id}))
+                    ${para_name}=    Read Cell Data By Name    ${worksheet}    ${vars['para_name_col']}${id}
+                    ${para_sname}=    Read Cell Data By Name    ${worksheet}    ${vars['para_short_name_col']}${id}
+                    ${para_type}=    Read Cell Data By Name    ${worksheet}    ${vars['para_type_col']}${id}
+                    ${para_list}=    Read Cell Data By Name    ${worksheet}    ${vars['para_list_value_col']}${id}
+                    ${para_default}=    Read Cell Data By Name    ${worksheet}    ${vars['para_default_value_col']}${id}
+                    ${para_hidden}=    Read Cell Data By Name    ${worksheet}    ${vars['para_hidden_col']}${id}
+                    ${para_editable}=    Read Cell Data By Name    ${worksheet}    ${vars['para_editable_col']}${id}
+                    ${para_mandatory}=    Read Cell Data By Name    ${worksheet}    ${vars['para_mandatory_col']}${id}
+                    Javascript XPath    ${dict['Re Obligation Edit Parameter Icon'].format("${para_sname}")}    scrollIntoView()
+                    Click Element    ${dict['Re Obligation Edit Parameter Icon'].format("${para_sname}")}
+                    Sleep    1
+                    Input Text    ${dict['Re Obligation Parameter Name Editable textbox']}    ${para_name}
+                    Element Should Be Disabled    ${dict['Re Obligation Parameter Short Name Editable textbox']}
+                    Dropdown Select    ${dict['Re Obligation Parameter Type Dropdown']}    ${para_type}
+                    Run Keyword If    '${para_list}' != ''    Input Text    ${dict['Re Obligation Parameter List value Editable textbox']}    ${para_list}
+                    Input Text    ${dict['Re Obligation Parameter Default value Editable textbox']}    ${para_default}
+                    Checkbox Interact    ${dict['Re Obligation Parameter Hidden Checkbox']}    ${para_hidden}
+                    Checkbox Interact    ${dict['Re Obligation Parameter Editable Checkbox']}    ${para_editable}
+                    Checkbox Interact    ${dict['Re Obligation Parameter Mandatory Checkbox']}    ${para_mandatory}
+                    Click Element    ${dict['CT Add to table Icon']}
+                END
+            END
+        END
+    END
+
+Attribute Edit
+    [Arguments]    ${attribute_ids}
+    ${worksheet}=    Set Variable    ${vars['worksheet2']}
+    FOR    ${id}    IN    @{attribute_ids}
+        ${id}=    Evaluate    str(int(${id}))
+        ${attribute_name}=    Read Cell Data By Name    ${worksheet}    ${vars['att_name_col']}${id}
+        ${attribute_sname}=    Read Cell Data By Name    ${worksheet}    ${vars['att_sname_col']}${id}
+        ${attribute_data_type}=    Read Cell Data By Name    ${worksheet}    ${vars['att_datatype_col']}${id}
+        ${attribute_operators}=    Read Cell Data By Name    ${worksheet}    ${vars['att_op_col']}${id}
+        Sleep    1
+        Javascript XPath    ${dict['CT att/act/obl by shortname'].format("${attribute_sname.lower()}")}    scrollIntoView()
+        Click Element    ${dict['CT att/act/obl by shortname'].format("${attribute_sname.lower()}")}/../..//i[@title="Edit"]
+        Input Text    ${dict['CT att/act/obl Name Editable textbox']}    ${attribute_name}
+        Element Should Be Disabled    ${dict['CT att/act/obl Short Name Editable textbox']}
+        Dropdown Select    ${dict['CT att/act/obl Data Type Dropdown']}    ${attribute_data_type}
+        Execute JavaScript    for (operator of document.querySelectorAll('input[data-ng-model*=".$_checked"]'))  {operator.checked=false; operator.dispatchEvent(new Event('change'));}
+        @{operators}    Evaluate    [x.strip() for x in "${attribute_operators}".split(',')]
+        FOR    ${operator}    IN    @{operators}
+            Checkbox Interact    ${dict['CT att/act/obl Operators Checkbox'].format("${operator}")}    true
+        END
+        Click Element    ${dict['CT Add to table Icon']}
+    END
+
+Action and Obligation Edit
+    ${worksheet}=    Set Variable    ${vars['worksheet']}
+    ${policy_model_action}=    Read Cell Data By Name    ${worksheet}    ${vars['pm_act_col']}${row}
+    @{action_ids}=    Evaluate    [x.strip() for x in "${policy_model_action}".split(',') if x != '']
+    ${policy_model_obl}=    Read Cell Data By Name    ${worksheet}    ${vars['pm_obl_col']}${row}
+    @{obl_ids}=    Evaluate    [x.strip() for x in "${policy_model_obl}".split(',') if x != '']
+    Javascript XPath    ${dict['Re ACTIONS Tab']}    scrollIntoView()
+    Click Element    ${dict['Re ACTIONS Tab']}
+    ${worksheet}=    Set Variable    ${vars['worksheet2']}
+    FOR    ${id}    IN    @{action_ids}
+        ${id}=    Evaluate    str(int(${id}))
+        ${action_name}=    Read Cell Data By Name    ${worksheet}    ${vars['act_name_col']}${id}
+        ${action_sname}=    Read Cell Data By Name    ${worksheet}    ${vars['act_sname_col']}${id}
+        Sleep    1
+        Javascript XPath    ${dict['CT att/act/obl by shortname'].format("${action_sname.upper()}")}    scrollIntoView()
+        Click Element    ${dict['CT att/act/obl by shortname'].format("${action_sname.upper()}")}/../..//i[@title="Edit"]
+        Input Text    ${dict['CT att/act/obl Name Editable textbox']}    ${action_name}
+        Element Should Be Disabled    ${dict['CT att/act/obl Short Name Editable textbox']}
+        Click Element    ${dict['CT Add to table Icon']}
+    END
+    Javascript XPath    ${dict['Re OBLIGATIONS Tab']}    scrollIntoView()
+    Click Element    ${dict['Re OBLIGATIONS Tab']}
+    FOR    ${id}    IN    @{obl_ids}
+        ${id}=    Evaluate    str(int(${id}))
+        ${obl_name}=    Read Cell Data By Name    ${worksheet}    ${vars['obl_name_col']}${id}
+        ${obl_sname}=    Read Cell Data By Name    ${worksheet}    ${vars['obl_sname_col']}${id}
+        ${obl_params}=    Read Cell Data By Name    ${worksheet}    ${vars['obl_param_col']}${id}
+        @{param_ids}=    Evaluate    [x.strip() for x in "${obl_params}".split(',') if x != '']
+        Sleep    1
+        Javascript XPath    ${dict['CT att/act/obl by shortname'].format("${obl_sname}")}    scrollIntoView()
+        Click Element    ${dict['CT att/act/obl by shortname'].format("${obl_sname}")}/../..//i[@title="Edit"]
+        Input Text    ${dict['CT att/act/obl Name Editable textbox']}    ${obl_name}
+        Element Should Be Disabled    ${dict['CT att/act/obl Short Name Editable textbox']}
+        Click Element    ${dict['CT Add to table Icon']}
+        IF    @{param_ids} != @{EMPTY}
+            Click Element    ${dict['Re Obligation hide/show parameters Link by shortname'].format("${obl_sname}")}
+            FOR    ${id}    IN    @{param_ids}
+                ${id}=    Evaluate    str(int(${id}))
+                ${para_name}=    Read Cell Data By Name    ${worksheet}    ${vars['para_name_col']}${id}
+                ${para_sname}=    Read Cell Data By Name    ${worksheet}    ${vars['para_short_name_col']}${id}
+                ${para_type}=    Read Cell Data By Name    ${worksheet}    ${vars['para_type_col']}${id}
+                ${para_list}=    Read Cell Data By Name    ${worksheet}    ${vars['para_list_value_col']}${id}
+                ${para_default}=    Read Cell Data By Name    ${worksheet}    ${vars['para_default_value_col']}${id}
+                ${para_hidden}=    Read Cell Data By Name    ${worksheet}    ${vars['para_hidden_col']}${id}
+                ${para_editable}=    Read Cell Data By Name    ${worksheet}    ${vars['para_editable_col']}${id}
+                ${para_mandatory}=    Read Cell Data By Name    ${worksheet}    ${vars['para_mandatory_col']}${id}
+                Javascript XPath    ${dict['Re Obligation Edit Parameter Icon'].format("${para_sname}")}    scrollIntoView()
+                Click Element    ${dict['Re Obligation Edit Parameter Icon'].format("${para_sname}")}
+                Sleep    1
+                Input Text    ${dict['Re Obligation Parameter Name Editable textbox']}    ${para_name}
+                Element Should Be Disabled    ${dict['Re Obligation Parameter Short Name Editable textbox']}
+                Dropdown Select    ${dict['Re Obligation Parameter Type Dropdown']}    ${para_type}
+                Run Keyword If    '${para_list}' != ''    Input Text    ${dict['Re Obligation Parameter List value Editable textbox']}    ${para_list}
+                Input Text    ${dict['Re Obligation Parameter Default value Editable textbox']}    ${para_default}
+                Checkbox Interact    ${dict['Re Obligation Parameter Hidden Checkbox']}    ${para_hidden}
+                Checkbox Interact    ${dict['Re Obligation Parameter Editable Checkbox']}    ${para_editable}
+                Checkbox Interact    ${dict['Re Obligation Parameter Mandatory Checkbox']}    ${para_mandatory}
+                Click Element    ${dict['CT Add to table Icon']}
+            END
+    END

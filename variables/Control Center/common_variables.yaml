@@ -1,0 +1,5 @@
+#Provide username and password and the browser to run on
+applicaiton_username: cchang        # User name used to login to Control Center
+application_password: 12345Blue!    # password used to log in to control center
+browser: chrome #browser used for web ui testing
+firefox_binary:  C:/Program Files/Mozilla Firefox/firefox.exe

@@ -1,0 +1,42 @@
+# a default SAP enrollment definition file 
+
+enroll.users                        true
+enroll.contacts               	    false
+enroll.computers                    false
+enroll.groups						true
+
+#
+# Required attributes
+#
+entry.attributefor.staticid         objectGUID
+
+computer.requirements               objectClass=Computer
+user.requirements                   objectClass=User
+contact.requirements                objectClass=Contact
+
+group.requirements                  objectclass=Group
+group.attributefor.enumeration      member
+
+structure.requirements				
+
+store.missing.attributes			true
+delete.inactive.group.members		false
+
+#
+# Attribute mappings
+
+#user.string.accountName            Account Name
+#user.string.company                Company 
+#user.string.CountryCode            CountryCode
+#user.string.countryName	           Country Name
+#user.string.department             Department
+user.string.displayName            Full Name  
+user.string.firstName              First Name
+#user.string.isoCountryCode         ISO Country Code 
+user.string.lastName               Last Name
+user.string.principalName	   User Principal Name
+user.string.unixId                 SAPUserId
+
+
+
+ldif.filename                       C:/Program Files/Nextlabs/PolicyServer/tools/enrollment/sap_nextlabs_com.ldif

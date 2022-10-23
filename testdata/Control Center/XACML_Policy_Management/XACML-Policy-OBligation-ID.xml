@@ -1,0 +1,46 @@
+<!-- From http://pushpalankajaya.blogspot.com/2013/06/working-with-xacml-30-policies-for-fine.html -->
+<Policy xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17" PolicyId="urn:oasis:names:tc:xacml:3.0:XACML:Aravinda-Policy" RuleCombiningAlgId="urn:oasis:names:tc:xacml:1.0:rule-combining-algorithm:first-applicable" Version="1.0">
+   <Description>sample policy1</Description>
+   <Target></Target>
+   <Rule Effect="Permit" RuleId="primary-group-customer-rule">
+      <Target>
+         <AnyOf>
+            <AllOf>
+               <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-regexp-match">
+                  <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">http://localhost:8080/</AttributeValue>
+                  <AttributeDesignator AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="true"></AttributeDesignator>
+               </Match>
+               <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                  <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">delete</AttributeValue>
+                  <AttributeDesignator AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="true"></AttributeDesignator>
+               </Match>
+            </AllOf>
+         </AnyOf>
+      </Target>
+      <Condition>
+         <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-subset">
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-bag">
+               <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">aravinda</AttributeValue>
+            </Apply>
+            <AttributeDesignator AttributeId="group" Category="urn:oasis:names:tc:xacml:3.0:group" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="true"></AttributeDesignator>
+         </Apply>
+      </Condition>
+   </Rule>
+   <Rule Effect="Deny" RuleId="deny-rule"></Rule>
+         <ObligationExpressions>
+            <ObligationExpression FulfillOn="Deny"
+                                  ObligationId="NextLabsPolicyLog">
+               <AttributeAssignmentExpression AttributeId="PolicyId">
+                  <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">urn:oasis:names:tc:xacml:3.0:XACML:Aravinda-Policy</AttributeValue>
+               </AttributeAssignmentExpression>
+            </ObligationExpression>
+         </ObligationExpressions>
+		  <ObligationExpressions>
+            <ObligationExpression FulfillOn="Permit"
+                                  ObligationId="NextLabsPolicyLog">
+               <AttributeAssignmentExpression AttributeId="PolicyId">
+                  <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">urn:oasis:names:tc:xacml:3.0:XACML:Aravinda-Policy</AttributeValue>
+               </AttributeAssignmentExpression>
+            </ObligationExpression>
+         </ObligationExpressions>
+</Policy> 

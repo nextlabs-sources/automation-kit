@@ -1,0 +1,41 @@
+# a default enrollment definition file
+# others/other refers to "other entities" field
+
+enroll.users                        true
+enroll.contacts               	    true
+enroll.computers                    true
+enroll.applications					true
+enroll.groups						true
+enroll.others                       true
+
+#
+# Required attributes
+#
+# entry.attributefor.staticid sets "Global Unique ID" field
+
+entry.attributefor.staticid         objectGUID
+
+store.missing.attributes			true
+delete.inactive.group.members		false
+
+# requirements sets "Filter" fields
+user.requirements                   objectClass=User
+contact.requirements                objectClass=Contact
+computer.requirements               objectClass=Computer
+application.requirements            objectClass=Application
+
+# structure.requirements set "Structural Group Filter" field
+group.requirements                  objectClass=Group
+group.attributefor.enumeration      member
+structure.requirements				
+
+other.requirements                  objectClass=Other
+
+# Attribute mappings
+# attributes must take the format "entity.datatype.cc_attribute"
+# even if the datatype is unknown, a placeholder should be used in its place
+
+user.string.firstName                givenName
+contact.xxx.firstName                firstName
+computer.unknown.windowsSid          objectSid
+application.string.appFingerPrint    applicationFingerPrint
